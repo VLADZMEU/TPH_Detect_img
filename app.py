@@ -7,7 +7,6 @@ import json
 
 app = Flask(__name__)
 
-# Загрузка предобученной модели ResNet
 model = models.resnet50(pretrained=True)
 model.eval()
 
@@ -15,14 +14,11 @@ model.eval()
 with open('imagenet-simple-labels.json', 'r', encoding='utf-8') as f:
     labels = json.load(f)
 
-# Преобразование class_id в название класса
 def class_id_to_label(class_id):
     return labels[class_id]
 
-# Преобразование изображения для модели
 def transform_image(image_bytes):
     try:
-        # Открываем изображение и конвертируем в RGB, если оно RGBA
         image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
         my_transforms = transforms.Compose([
             transforms.Resize(255),
