@@ -5,10 +5,8 @@ from PIL import Image
 import io
 import json
 
-
 app = Flask(__name__)
 
-# Загрузка предобученной модели ResNet
 model = models.resnet50(pretrained=True)
 model.eval()
 
@@ -42,10 +40,10 @@ def get_prediction(image_bytes):
 def upload_file():
     if request.method == 'POST':
         if 'file' not in request.files:
-            return jsonify({'error': 'No file uploaded'}), 400
+            return jsonify({'error': 'Файл не найден'}), 400
         file = request.files['file']
         if not file:
-            return jsonify({'error': 'No file uploaded'}), 400
+            return jsonify({'error': 'Файл не найден'}), 400
         img_bytes = file.read()
         try:
             class_id = get_prediction(image_bytes=img_bytes)
