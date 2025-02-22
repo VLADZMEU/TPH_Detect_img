@@ -1,4 +1,4 @@
-# Detect_img
+# TSI_Detect_img
 dir /fonts
 need to dowload all libraries - pip install flask torch torchvision pillow
 
