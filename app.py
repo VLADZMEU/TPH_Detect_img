@@ -12,6 +12,12 @@ app = Flask(__name__)
 model = models.resnet50(pretrained=True)
 model.eval()
 
+with open('imagenet-simple-labels.json') as f:
+    labels = json.load(f)
+
+def class_id_to_label(i):
+    return labels[i]
+
 
 # Преобразование изображения для модели
 def transform_image(image_bytes):
@@ -43,7 +49,7 @@ def upload_file():
         img_bytes = file.read()
         try:
             class_id = get_prediction(image_bytes=img_bytes)
-            return jsonify({'class_id': class_id})
+            return jsonify(class_id_to_label(class_id))
         except Exception as e:
             return jsonify({'error': str(e)}), 500
     return render_template('index.html')
