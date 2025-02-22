@@ -1,0 +1,150 @@
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.upload-section {
+    text-align: center;
+}
+
+.upload-section input[type="file"] {
+    display: none;
+}
+
+.upload-section label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-section label:hover {
+    background-color: #0056b3;
+}
+
+.upload-section button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #00a86b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-section button:hover {
+    background-color: #008552;
+}
+
+.result-card {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none; /* Скрываем по умолчанию */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.result-card h2 {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.result-card p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+#toggle-dark-mode {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#toggle-dark-mode:hover {
+    background-color: #5a6268;
+}
+
+/* Тёмная тема */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .upload-section label {
+    background-color: #1e90ff;
+}
+
+body.dark-mode .upload-section label:hover {
+    background-color: #0077cc;
+}
+
+body.dark-mode .upload-section button {
+    background-color: #00a86b;
+}
+
+body.dark-mode .upload-section button:hover {
+    background-color: #008552;
+}
+
+body.dark-mode .result-card {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+body.dark-mode .result-card h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .result-card p {
+    color: #dddddd;
+}
+
+body.dark-mode #toggle-dark-mode {
+    background-color: #495057;
+}
+
+body.dark-mode #toggle-dark-mode:hover {
+    background-color: #343a40;
+}

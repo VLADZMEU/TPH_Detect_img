@@ -4,63 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Классификация изображений</title>
-    <!-- Подключение Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            color: #212529;
-        }
-        .upload-section {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .result-card {
-            margin-top: 20px;
-            display: none; /* Скрываем по умолчанию */
-        }
-        .dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
-        .dark-mode .upload-section {
-            background-color: #1e1e1e;
-            color: #ffffff;
-        }
-        .dark-mode .result-card {
-            background-color: #2d2d2d;
-            color: #ffffff;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <div class="upload-section text-center">
-            <h1 class="mb-4">Классификация изображений</h1>
-            <form id="upload-form" class="mb-3">
-                <div class="mb-3">
-                    <input type="file" class="form-control" name="file" accept="image/*" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Загрузить и классифицировать</button>
+        <h1>Классификация изображений</h1>
+        <div class="upload-section">
+            <form id="upload-form">
+                <label for="file-input">Выберите изображение</label>
+                <input type="file" id="file-input" name="file" accept="image/*" required>
+                <button type="submit">Загрузить и классифицировать</button>
             </form>
-            <div id="result" class="result-card card">
-                <div class="card-body">
-                    <h2 class="card-title">Результат:</h2>
-                    <p id="top-prediction" class="card-text"></p>
-                    <ul id="top-predictions" class="list-group"></ul>
-                </div>
+            <div id="result" class="result-card">
+                <h2>Результат:</h2>
+                <p id="top-prediction"></p>
             </div>
-            <button id="toggle-dark-mode" class="btn btn-secondary mt-3">Тёмная тема</button>
+            <button id="toggle-dark-mode">Тёмная тема</button>
         </div>
     </div>
 
-    <!-- Подключение Bootstrap JS и Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script>
         document.getElementById('upload-form').onsubmit = async (e) => {
             e.preventDefault();

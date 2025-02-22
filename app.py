@@ -71,7 +71,7 @@ def upload_file():
             # Получение предсказания
             class_id = get_prediction(image_bytes=img_bytes)
             class_name = class_id_to_label(class_id)
-            return jsonify(class_name)
+            return jsonify({'class_name': class_name})
         except ValueError as e:
             return jsonify({'error': str(e)}), 400
         except Exception as e:
