@@ -15,6 +15,10 @@
                 <input type="file" id="file-input" name="file" accept="image/*" required>
                 <button type="submit">Загрузить и классифицировать</button>
             </form>
+            <!-- Элемент для отображения загруженной картинки -->
+            <div id="image-preview" class="image-preview">
+                <img id="uploaded-image" src="#" alt="Загруженное изображение" style="display: none;">
+            </div>
             <div id="result" class="result-card">
                 <h2>Результат:</h2>
                 <p id="top-prediction"></p>
@@ -24,6 +28,21 @@
     </div>
 
     <script>
+        // Отображение загруженной картинки
+        document.getElementById('file-input').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgElement = document.getElementById('uploaded-image');
+                    imgElement.src = e.target.result;
+                    imgElement.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Отправка формы
         document.getElementById('upload-form').onsubmit = async (e) => {
             e.preventDefault();
             const formData = new FormData();

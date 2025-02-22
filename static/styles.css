@@ -67,7 +67,7 @@ h1 {
     background-color: #f8f9fa;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: none; /* Скрываем по умолчанию */
+    display: none;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
@@ -147,4 +147,21 @@ body.dark-mode #toggle-dark-mode {
 
 body.dark-mode #toggle-dark-mode:hover {
     background-color: #343a40;
+}
+/* Стили для превью изображения */
+.image-preview {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#uploaded-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+body.dark-mode #uploaded-image {
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
 }
